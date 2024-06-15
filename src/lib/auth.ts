@@ -3,6 +3,7 @@ import { SanityAdapter } from "./adapter";
 import { client } from '~/../sanity/lib/client';
 import {
   type DefaultSession,
+  type SessionStrategy
 } from "next-auth";
 
 declare module "next-auth" {
@@ -42,7 +43,7 @@ export const authOptions = {
     verifyRequest: '/auth/verify-request',
   },
   session: {
-    strategy: 'jwt'
+    strategy: 'jwt' as SessionStrategy,
   },
   callbacks: {
     async redirect({ url, baseUrl }:{ url: string, baseUrl: string }) {
