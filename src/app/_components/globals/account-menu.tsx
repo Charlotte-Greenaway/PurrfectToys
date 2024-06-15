@@ -13,7 +13,9 @@ export default function AccountMenu(user:{
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
         <Avatar className="hover:cursor-pointer">
-          <AvatarImage src={user.image} />
+          {
+            user.image && <AvatarImage src={user.image} />
+          }
           <AvatarFallback>{user.email?.slice(0, 1)}</AvatarFallback>
         </Avatar>
       </DropdownMenuTrigger>
